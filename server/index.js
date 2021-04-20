@@ -11,7 +11,6 @@ const app = express();
 
 module.exports = app;
 
-
 const createApp = () => {
   // logging middleware
   app.use(morgan('dev'));
