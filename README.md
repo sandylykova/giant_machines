@@ -2,7 +2,7 @@
 
 ## Setup
 
-1. cd <directory you want to clone this project>
+1. `cd` directory you want to clone this project
 2. git clone https://github.com/sandylykova/giant_machines.git
 3. Run `npm install`.
 4. Create database `giant-machines`.
