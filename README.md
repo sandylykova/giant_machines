@@ -12,7 +12,7 @@
    - run command `\copy projects(date, client, project, project_code, hours, billable, first_name, last_name, billable_rate) FROM '/path/to/csv/data.csv' DELIMITER ',' CSV HEADER`. Your data.csv is located in the root folder of the project folder, will look something like: './Users/Biligma/Desktop/gm/data.csv'.
 5. Go to http://localhost:8080 to try it out!
 
-Project was build on MacOS build environment.
+Build environment - MacOS.
 
 ## Tech Stack
 
