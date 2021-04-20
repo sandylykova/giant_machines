@@ -13,14 +13,10 @@ router.get('/', async (req, res, next) => {
       map.get(val.project).push([val.client, val.hours, val.billable, val.billable_rate]);
     }
     let projects = [];
-    let totalHours = 0;
-    let totalBillableAmount = 0;
     for (let [key, values] of map) {
       let hours = 0, billableHours = 0, billableAmount = 0, notBillableHours = 0;
       let client = values[0][0];
       for (let value of values) {
-        totalHours += Number(value[1]);
-        totalBillableAmount += Number(value[3]);
         hours += Number(value[1]);
         billableAmount += Number(value[3]);
         if (value[2] === 'No') notBillableHours += Number(value[1]);
@@ -28,7 +24,6 @@ router.get('/', async (req, res, next) => {
           billableHours += Number(value[1]);
         }
       }
-      hours = hours.toFixed(2);
       billableHours = billableHours.toFixed(2);
       notBillableHours = notBillableHours.toFixed(2);
       let percent = "(100%)";
@@ -36,9 +31,6 @@ router.get('/', async (req, res, next) => {
         let billablePercent = Math.floor(billableHours * 100 / hours);
         percent = `(${billablePercent}%)`;
       }
-      billableAmount = billableAmount.toLocaleString();
-      totalBillableAmount = totalBillableAmount;
-      totalHours = totalHours;
       if (billableAmount === "0") {
         billableAmount = "-";
         projects.push({
@@ -49,8 +41,6 @@ router.get('/', async (req, res, next) => {
           billableAmount,
           notBillableHours,
           percent,
-          totalHours,
-          totalBillableAmount,
         })
       } else {
         projects.push({
@@ -58,11 +48,9 @@ router.get('/', async (req, res, next) => {
           hours,
           client,
           billableHours,
-          billableAmount: `$${billableAmount}.00`,
+          billableAmount,
           notBillableHours,
           percent,
-          totalHours,
-          totalBillableAmount
         })
       }
     }

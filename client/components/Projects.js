@@ -16,34 +16,40 @@ class Projects extends React.Component {
     const projects = this.props.projects;
     return projects.map((project) => {
       const { name, hours, client, billableAmount, billableHours, percent} = project;
+      let billableAmountFixed = billableAmount ? `$${billableAmount.toLocaleString()}.00 ` : 0;
+      let hoursFixed = hours ? Number(hours).toFixed(2) : 0;
       return (
         <tr key={name}>
           <td className="steelblueLeft">{name}</td>
           <td className="steelblueLeft">{client}</td>
-          <td className="steelblueRight">{hours}</td>
+          <td className="steelblueRight">{hoursFixed}</td>
           <td className="blackRight">{billableHours}</td>
           <td className="greyRight">{percent}</td>
-          <td className="blackRightBold">{billableAmount}</td>
+          <td className="blackRightBold">{billableAmountFixed}</td>
         </tr>
        )
     })
   }
   render() {
     const projects = this.props.projects;
-    let totalHours = projects.length > 0 ? projects[projects.length - 1].totalHours : 0;
-    let totalBillableAmount = projects.length > 0 ? projects[projects.length - 1].totalBillableAmount : 0;
-    const hoursWithFixed = totalHours ? totalHours.toFixed(2) : 0;
-    const totalBillableAmountWithLocaleString = totalBillableAmount ? `$${totalBillableAmount.toLocaleString()}.00` : 0;
+    let totalHours = 0;
+    let totalBillableAmount = 0;
+    projects.map(project => {
+      totalHours += project.hours;
+      totalBillableAmount += project.billableAmount;
+    });
+    let totalBillableAmountFixed = totalBillableAmount ? `$${totalBillableAmount.toLocaleString()}.00` : 0;
+    let totalHoursFixed = totalHours ? Number(totalHours).toFixed(2) : 0;
     return (
       <div>
         <div className="totalsBox">
           <div style={{float: "left"}}>
             <div style={{color: "dimgrey"}}>Hours Tracked</div>
-            <div className="totalsNumbers">{hoursWithFixed}</div>
+            <div className="totalsNumbers">{totalHoursFixed}</div>
           </div>
           <div style={{float: "right"}}>
             <div style={{color: "dimgrey"}}>Billable Amount</div>
-            <div className="totalsNumbers">{totalBillableAmountWithLocaleString}</div>
+            <div className="totalsNumbers">{totalBillableAmountFixed}</div>
           </div>
         </div>
         <table>

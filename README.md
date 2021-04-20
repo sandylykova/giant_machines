@@ -5,12 +5,14 @@
 1. `cd` directory you want to clone this project
 2. git clone https://github.com/sandylykova/giant_machines.git
 3. Run `npm install`.
-4. Create database `giant-machines`.
+4. Create database `createdb giant-machines`.
 5. Run `npm start`.
 6. Populate your table Projects in your giant-machines database:
+   - run `psql`
    - connect to your database: `\c giant-machines`
    - run command `\copy projects(date, client, project, project_code, hours, billable, first_name, last_name, billable_rate) FROM '/path/to/csv/data.csv' DELIMITER ',' CSV HEADER`. Your data.csv is located in the root folder of the project folder, will look something like: './Users/Biligma/Desktop/gm/data.csv'.
-5. Go to http://localhost:8080 to try it out!
+7. Run `npm start`.
+8. Go to http://localhost:8080 to try it out!
 
 Build environment - MacOS.
 
