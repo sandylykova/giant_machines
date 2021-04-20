@@ -2,20 +2,93 @@ body {
   font-family: sans-serif;
 }
 
-a {
-  text-decoration: none;
+table {
+  border-collapse: collapse;
+  max-width:960px;
+  width:100%;
+  margin:0 auto;
+  position:relative;
+}
+th, td {
+  padding: 0px 20px
+}
+ tr {
+  height: 48px;
+  border-bottom: 1px solid lightgrey
+ }
+
+ .steelblueLeft {
+  color: steelblue;
+  text-align: left
+ }
+
+ .steelblueRight {
+  color: steelblue;
+  text-align: right
+ }
+
+ .blackRight {
+  color: black;
+  text-align: right
+ }
+
+ .greyRight {
+  color: grey;
+  text-align: right
+ }
+
+.blackRightBold {
+  color: black;
+  text-align: right;
+  font-weight: bold
+ }
+
+.totalsBox {
+  padding: 0px 20px 50px 20px;
+  margin: 60px
 }
 
-label {
-  display: block;
+.totalsNumbers {
+  font-weight: bold;
+  font-size: 26px
 }
 
-nav a {
-  display: inline-block;
-  margin: 1em;
+.header {
+  height: 30px;
+  border: 1px solid lightgrey; background-image: linear-gradient(to right top, #f9fbf7, #edf1f0, #e4e7e7, #dbdcdd, #d2d2d2); font-size: 14px;
 }
 
-form div {
-  margin: 1em;
-  display: inline-block;
+.headerLeft {
+  color: black;
+  text-align: left;
+  font-weight: normal;
+  border: 1px solid lightgrey;
+}
+
+.headerRight {
+  color: black;
+  text-align: right;
+  font-weight: normal;
+  border: 1px solid lightgrey;
+}
+
+.form {
+  max-width:480px;
+  margin: auto;
+  background-image: linear-gradient(to right top, #f9fbf7, #edf1f0, #e4e7e7, #dbdcdd, #d2d2d2);
+  text-align: center;
+}
+h1 {
+  color:black;
+  font-weight: normal;
+  font-size: 26px;
+  text-align: center;
+}
+
+.input {
+  margin-bottom: 5px;
+}
+
+button {
+  background-color: steelblue;
 }

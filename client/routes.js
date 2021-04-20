@@ -6,8 +6,7 @@ class Routes extends Component {
   render() {
     return (
       <>
-        {/* <Route path="/" component={Welcome} /> */}
-        <Route path="/projects" component={Projects} />
+        <Route path="/" component={Projects} />
       </>
     )
   }

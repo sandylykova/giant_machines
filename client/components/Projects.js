@@ -14,32 +14,47 @@ class Projects extends React.Component {
   }
   renderTableData() {
     const projects = this.props.projects;
-    return projects.map((project, index) => {
+    return projects.map((project) => {
       const { name, hours, client, billableAmount, billableHours, percent} = project;
-
       return (
         <tr key={name}>
-          <td>{name}</td>
-          <td>{client}</td>
-          <td>{hours}</td>
-          <td>{billableHours} {percent}</td>
-          <td>{billableAmount}</td>
+          <td className="steelblueLeft">{name}</td>
+          <td className="steelblueLeft">{client}</td>
+          <td className="steelblueRight">{hours}</td>
+          <td className="blackRight">{billableHours}</td>
+          <td className="greyRight">{percent}</td>
+          <td className="blackRightBold">{billableAmount}</td>
         </tr>
        )
     })
   }
-  renderTableHeader() {
-    let header = ["Name", "Clients", "Hours", "Billable Hours", "Billable Amount"];
-    return header.map((key, index) => {
-       return <th key={index}>{key}</th>
-    })
- }
   render() {
+    const projects = this.props.projects;
+    let totalHours = projects.length > 0 ? projects[projects.length - 1].totalHours : 0;
+    let totalBillableAmount = projects.length > 0 ? projects[projects.length - 1].totalBillableAmount : 0;
+    const hoursWithFixed = totalHours ? totalHours.toFixed(2) : 0;
+    const totalBillableAmountWithLocaleString = totalBillableAmount ? `$${totalBillableAmount.toLocaleString()}.00` : 0;
     return (
       <div>
-        <table id='students'>
+        <div className="totalsBox">
+          <div style={{float: "left"}}>
+            <div style={{color: "dimgrey"}}>Hours Tracked</div>
+            <div className="totalsNumbers">{hoursWithFixed}</div>
+          </div>
+          <div style={{float: "right"}}>
+            <div style={{color: "dimgrey"}}>Billable Amount</div>
+            <div className="totalsNumbers">{totalBillableAmountWithLocaleString}</div>
+          </div>
+        </div>
+        <table>
           <tbody>
-            <tr>{this.renderTableHeader()}</tr>
+            <tr className = "header">
+              <th className = "headerLeft">Name</th>
+              <th className = "headerLeft">Clients</th>
+              <th className = "headerRight">Hours</th>
+              <th className = "headerRight" colSpan={2}>Billable Hours</th>
+              <th className = "headerRight">Billable Amount</th>
+            </tr>
             {this.renderTableData()}
           </tbody>
         </table>

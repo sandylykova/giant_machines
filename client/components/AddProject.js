@@ -37,7 +37,7 @@ class AddProject extends Component {
   }
   render() {
     return (
-      <div>
+      <div className = "form">
         <form onSubmit={this.handleSubmit}>
           <h1>Add new project form</h1>
           <div>
@@ -93,7 +93,7 @@ class AddProject extends Component {
           <div>
             <label>
               Is it billable?
-              <select
+              <select className = "input"
                 onChange={this.handleChange}
                 value={this.state.billable}
                 name="billable"
