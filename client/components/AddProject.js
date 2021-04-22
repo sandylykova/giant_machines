@@ -43,7 +43,7 @@ class AddProject extends Component {
           <div>
             <input
               className="input"
-              placeholder="Date"
+              placeholder="Date mm/dd/yyyy"
               type="text"
               name="date"
               onChange={this.handleChange}

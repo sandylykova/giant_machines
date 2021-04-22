@@ -39,12 +39,12 @@ const createApp = () => {
     }
   });
 
-  // sends index.html
+  // sends index.html for any requests that don't match one of API routes
   app.use('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public/index.html'));
   });
 
-  // error handling endware
+  // 500 error handling with logging it out
   app.use((err, req, res, next) => {
     console.error(err);
     console.error(err.stack);

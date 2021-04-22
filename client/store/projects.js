@@ -4,6 +4,7 @@ const initialState = [];
 const GET_ALL_PROJECTS = 'GET_ALL_PROJECTS';
 const ADD_PROJECT = 'ADD_PROJECT';
 
+// Actions
 const getAllProjects = projects => {
   return {
     type: GET_ALL_PROJECTS,
@@ -43,6 +44,7 @@ export const addProjectThunk = (project) => {
   }
 }
 
+// Reducer function
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_ALL_PROJECTS:

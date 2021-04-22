@@ -6,7 +6,7 @@ import projects from './projects';;
 
 const reducer = combineReducers({projects});
 const middleware = composeWithDevTools(
-  applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
+  applyMiddleware(thunkMiddleware, createLogger())
 );
 const store = createStore(reducer, middleware);
 
