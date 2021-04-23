@@ -7,12 +7,14 @@
 3. Run `npm install`.
 4. Create database `createdb giant-machines`.
 5. Run `npm start`.
-6. Populate your table Projects in your giant-machines database:
-   - run `psql`
-   - connect to your database: `\c giant-machines`
-   - run command `\copy projects(date, client, project, project_code, hours, billable, first_name, last_name, billable_rate) FROM '/path/to/csv/data.csv' DELIMITER ',' CSV HEADER`. Your data.csv is located in the root folder of the project folder, will look something like: './Users/Biligma/Desktop/gm/data.csv'.
-7. Run `npm start`.
-8. Go to http://localhost:8080 to try it out!
+6. Install latest version of PostreSQL (`https://www.postgresql.org/download/`)
+7. Populate your table Projects in your giant-machines database:
+   - run `psql`;
+   - connect to your database: `\c giant-machines`;
+   - run command `\copy projects(date, client, project, project_code, hours, billable, first_name, last_name, billable_rate) FROM '/path/to/csv/data.csv' DELIMITER ',' CSV HEADER`. Your data.csv is located in the root folder of the project folder, will look something like: './Users/Biligma/Desktop/gm/data.csv';
+   - run `\q`;
+8. Run `npm start`.
+9. Go to http://localhost:8080 to try it out!
 
 Build environment - MacOS.
 
