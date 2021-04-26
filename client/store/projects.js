@@ -22,11 +22,10 @@ const addProject = project => {
 export const getAllProjectsThunk = () => {
   return async dispatch => {
     try {
-      const { data } = await axios.get('/api/projects')
-      // console.log('this is data', data)
-      dispatch(getAllProjects(data))
+      const { data } = await axios.get('/api/projects');
+      dispatch(getAllProjects(data));
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 }
@@ -35,11 +34,11 @@ export const addProjectThunk = (project) => {
   return async dispatch => {
     try {
       const { data } = await axios.post(`/api/projects`, project);
-      const newData = await axios.get('/api/projects')
+      const newData = await axios.get('/api/projects');
       dispatch(addProject(data));
-      dispatch(getAllProjects(newData.data))
+      dispatch(getAllProjects(newData.data));
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 }
@@ -48,10 +47,10 @@ export const addProjectThunk = (project) => {
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_ALL_PROJECTS:
-      return action.projects
+      return action.projects;;
     case ADD_PROJECT:
       return [...state, action.project];
     default:
-      return state
+      return state;
   }
 }

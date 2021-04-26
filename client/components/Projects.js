@@ -4,11 +4,6 @@ import {getAllProjectsThunk, addProjectThunk} from '../store/projects';
 import AddProject from './AddProject';
 
 class Projects extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-    }
-  }
   componentDidMount() {
     this.props.getAllProjects()
   }
