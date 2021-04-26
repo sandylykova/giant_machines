@@ -16,7 +16,7 @@ class Projects extends React.Component {
     const projects = this.props.projects;
     return projects.map((project) => {
       const { name, hours, client, billableAmount, billableHours, percent} = project;
-      let billableAmountFixed = billableAmount ? `$${billableAmount.toLocaleString()}.00 ` : 0;
+      let billableAmountFixed = billableAmount ? `$${billableAmount.toLocaleString()}.00` : '-';
       let hoursFixed = hours ? Number(hours).toFixed(2) : 0;
       return (
         <tr key={name}>

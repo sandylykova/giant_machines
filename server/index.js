@@ -16,9 +16,6 @@ const createApp = () => {
   app.use(express.json());
   app.use(express.urlencoded({extended: true}));
 
-  // compression middleware
-  app.use(compression());
-
   // api routes
   app.use('/api', require('./api'));
 
@@ -67,8 +64,6 @@ async function bootApp() {
 // i.e. when we say 'node server/index.js' (or 'nodemon server/index.js', or 'nodemon server', etc)
 // It will evaluate false when this module is required by another module - for example,
 // if we wanted to require our app in a test spec
-if (require.main === module) {
-  bootApp();
-} else {
-  createApp();
-}
+
+bootApp();
+

@@ -31,28 +31,15 @@ router.get('/', async (req, res, next) => {
         let billablePercent = Math.floor(billableHours * 100 / hours);
         percent = `(${billablePercent}%)`;
       }
-      if (billableAmount === "0") {
-        billableAmount = "-";
-        projects.push({
-          name: key,
-          hours,
-          client,
-          billableHours,
-          billableAmount,
-          notBillableHours,
-          percent,
-        })
-      } else {
-        projects.push({
-          name: key,
-          hours,
-          client,
-          billableHours,
-          billableAmount,
-          notBillableHours,
-          percent,
-        })
-      }
+      projects.push({
+        name: key,
+        hours,
+        client,
+        billableHours,
+        billableAmount,
+        notBillableHours,
+        percent,
+      })
     }
     res.json(projects)
   } catch (err) {
