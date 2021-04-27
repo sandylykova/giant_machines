@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
-const compression = require('compression');
 const db = require('./db');
 const PORT = 8080;
 const app = express();

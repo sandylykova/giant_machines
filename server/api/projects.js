@@ -37,7 +37,6 @@ router.get('/', async (req, res, next) => {
         client,
         billableHours,
         billableAmount,
-        notBillableHours,
         percent,
       })
     }

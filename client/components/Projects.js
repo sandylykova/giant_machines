@@ -5,7 +5,7 @@ import AddProject from './AddProject';
 
 class Projects extends React.Component {
   componentDidMount() {
-    this.props.getAllProjects()
+    this.props.getAllProjects();
   }
   renderTableData() {
     const projects = this.props.projects;
